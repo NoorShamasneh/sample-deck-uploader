@@ -1,0 +1,21 @@
+
+
+.toolbar {
+  height: 4rem;
+  line-height: 2rem;
+  font-size: .875rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  border-bottom: 0.125rem solid var(--light-gray);
+  color: var(--dark-gray);
+  font-weight: 400;
+  padding: 1rem;
+
+  img {
+    height: 2rem;
+    margin-top: -.5rem;
+  }
+}
+

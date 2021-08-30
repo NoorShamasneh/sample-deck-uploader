@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~primeicons/primeicons.css';
+@import '~primeng/resources/themes/md-light-indigo/theme.css';
+@import '~primeng/resources/primeng.css';
+
+
+
+
+:root {
+  --dark-gray: #585858;
+  --orignal-blue: #3077b8;
+  --light-gray: #EFF2F7;
+  --font-family: Gotham SSm A, Gotham SSm B, Helvetica, Arial, sans-serif;
+  font-family: var(--font-family);
+  color: var(--dark-gray);
+}
+
+
+.p-button.p-button-outlined {
+  padding-block: 0.75rem;
+  padding-inline: 1rem;
+  color: var(--orignal-blue);
+  border-color: var(--orignal-blue);
+  border-radius: 3px;
+  line-height: 1.25rem;
+  text-transform: uppercase;
+  font-size: .875rem;
+  font-family: var(--font-family);
+
+}
