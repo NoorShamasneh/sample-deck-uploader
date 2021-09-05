@@ -4,14 +4,14 @@
     <img
       alt="WeFunder Logo"
       src="https://wefunder-production.s3.amazonaws.com/2021/logo.svg"/>
-    <div style="margin-inline-start: 2rem;">
+    <div style="margin-inline-start: 2rem; text-transform: uppercase">
       pitch deck uploader
     </div>
   </div>
 
 
 
-  <button pButton type="button" label="Upload New Deck" class="p-button-outlined">
+  <button pButton type="button" label="Upload New Deck" class="p-button-outlined" [routerLink]="['./new']">
   </button>
 </div>
 <router-outlet></router-outlet>

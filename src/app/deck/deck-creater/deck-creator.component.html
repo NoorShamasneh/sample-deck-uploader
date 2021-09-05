@@ -1,0 +1,41 @@
+<div class="form-wrapper">
+  <h2>Upload new Deck</h2>
+  <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+    <div>
+      <div class="form-group">
+        <div>
+          <label class="form-control-label" for="field_companyName">Company Name</label>
+          <input class="form-control" id="field_companyName" name="companyName"
+                 formControlName="companyName" placeholder="Ex: WeFunder"
+                 pInputText>
+        </div>
+        <div>
+          <label class="form-control-label" for="field_description">Description</label>
+          <input class="form-control" id="field_description" name="description"
+                 formControlName="description" placeholder="description for the company"
+                 pInputText>
+        </div>
+        <div>
+          <label class="form-control-label" for="field_fileName">Choose Deck</label>
+          <input class="form-control" id="field_fileName" name="fileName" #fileChooser
+                 formControlName="fileName" placeholder="Choose file" type="file" (change)="chooseFile($event)"
+                 accept="application/vnd.openxmlformats-officedocument.presentationml.presentation,application/vnd.ms-powerpoint,application/pdf"
+                 pInputText>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="btns-div">
+      <button type="button" pButton label="Cancel" class="p-button-outlined p-button-secondary"
+              (click)="previousState()">
+      </button>
+
+
+      <button pButton style="margin-inline-start: 1rem" label="Upload" type="submit" class="p-button-primary"
+              id="save-entity" [disabled]="editForm.invalid || isSaving">
+      </button>
+    </div>
+  </form>
+
+</div>

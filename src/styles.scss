@@ -2,8 +2,7 @@
 @import '~primeicons/primeicons.css';
 @import '~primeng/resources/themes/md-light-indigo/theme.css';
 @import '~primeng/resources/primeng.css';
-
-
+@import "~bootstrap/scss/bootstrap";
 
 
 :root {
@@ -16,15 +15,43 @@
 }
 
 
-.p-button.p-button-outlined {
+.p-button {
   padding-block: 0.75rem;
   padding-inline: 1rem;
-  color: var(--orignal-blue);
-  border-color: var(--orignal-blue);
   border-radius: 3px;
   line-height: 1.25rem;
   text-transform: uppercase;
   font-size: .875rem;
   font-family: var(--font-family);
+}
 
+.p-button.p-button-outlined {
+  color: var(--orignal-blue);
+  border-color: var(--orignal-blue);
+}
+
+.p-button.p-button-primary {
+  color: white;
+  border-color: var(--orignal-blue);
+  background: var(--orignal-blue);
+}
+
+.p-button.p-button-outlined.p-button-secondary {
+  color: var(--dark-gray);
+  border-color: var(--dark-gray);
+}
+
+.p-inputtext:enabled:hover {
+  border-color: var(--dark-gray);
+}
+
+.form-control {
+  width: 100%;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+}
+
+
+.p-inputtext:enabled:focus {
+  box-shadow: inset 0 0 0 1px var(--orignal-blue);
 }
