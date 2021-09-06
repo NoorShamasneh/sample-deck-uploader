@@ -1,1 +1,12 @@
-<p>deck-item works!</p>
+<div class="wrapper">
+  <h2 style="color: var(--original-blue)">{{deck?.companyName}}</h2>
+  <div style="margin-top: 1rem">{{deck.description}}</div>
+  <div style="margin-top: 1rem; margin-bottom: 2rem">
+    <a target="_blank" [href]="resourceUrl+ deck.originalFileURL">
+      {{deck.originalFileName}}
+    </a>
+  </div>
+  <div *ngFor="let image of deck.images">
+    <img class="deck-image" [src]="resourceUrl + image"/>
+  </div>
+</div>

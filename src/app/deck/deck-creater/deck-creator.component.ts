@@ -1,7 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {FileUpload} from 'primeng/fileupload';
-import {environment} from '../../../environments/environment';
+import {DeckService} from '../deck.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-deck-creator',
@@ -19,19 +20,33 @@ export class DeckCreatorComponent implements OnInit {
   });
 
   isSaving = false;
+  showError = false;
   @ViewChild('offerUploader', {static: false}) offerUploader: FileUpload;
 
-  offersURL = environment.SERVER_API_URL;
-  uploadedFiles: any[] = [];
 
-
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private deckService: DeckService, private router: Router) {
   }
 
   ngOnInit() {
   }
 
   save() {
+    this.isSaving = true;
+    this.showError = false;
+    const formData = new FormData();
+    formData.append('originalFile', this.editForm.get('file').value);
+    formData.append('companyName', this.editForm.get('companyName').value);
+    formData.append('description', this.editForm.get('description').value);
+    formData.append('originalFileName', this.editForm.get('fileName').value);
+    this.deckService.create(formData).subscribe((res) => {
+      this.isSaving = false;
+      if (res.body.id) {
+        this.router.navigate([res.body.id]);
+      }
+    }, error => {
+      this.showError = true;
+    });
+
   }
 
   previousState(): void {
@@ -42,7 +57,7 @@ export class DeckCreatorComponent implements OnInit {
     let newFileValue;
     if ($event.target.files.length > 0) {
       const selectedFile = $event.target.files[0];
-      if (selectedFile.name.toLowerCase().match(/.(ppt|pdf|pptx)$/i)){
+      if (selectedFile.name.toLowerCase().match(/.(ppt|pdf|pptx)$/i)) {
         newFileValue = selectedFile;
       } else {
         this.editForm.patchValue({

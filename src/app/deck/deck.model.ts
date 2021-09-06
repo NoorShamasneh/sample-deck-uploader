@@ -5,11 +5,12 @@ export class Deck {
     public id?: string,
     public companyName?: string,
     public description?: string,
-    public originalFilePath?: string,
+    public originalFileURL?: string,
     public originalFileName?: string,
     public createdDate?: Moment,
     public numberOFImages?: number,
-    public images?: string[]
+    public images?: string[],
+    public originalFile?: any
   ) {
   }
 }

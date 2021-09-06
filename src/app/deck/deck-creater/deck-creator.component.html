@@ -24,14 +24,12 @@
         </div>
       </div>
     </div>
-
-
+    <p-message  [hidden]="!showError" *ngIf="showError" severity="error"
+               text="An error has occurred, Please check the input file."></p-message>
     <div class="btns-div">
-      <button type="button" pButton label="Cancel" class="p-button-outlined p-button-secondary"
+      <button [disabled]="isSaving" type="button" pButton label="Cancel" class="p-button-outlined p-button-secondary"
               (click)="previousState()">
       </button>
-
-
       <button pButton style="margin-inline-start: 1rem" label="Upload" type="submit" class="p-button-primary"
               id="save-entity" [disabled]="editForm.invalid || isSaving">
       </button>
