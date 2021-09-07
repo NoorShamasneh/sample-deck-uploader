@@ -5,8 +5,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {SharedModule} from './shared/shared.module';
 import {HttpClientModule} from '@angular/common/http';
-import {DeckCreatorComponent} from './deck/deck-creater/deck-creator.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgxUiLoaderModule} from 'ngx-ui-loader';
 
 @NgModule({
   declarations: [
@@ -16,7 +15,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    NgxUiLoaderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

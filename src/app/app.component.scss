@@ -1,9 +1,7 @@
-
-
 .toolbar {
   height: 4rem;
   line-height: 2rem;
-  font-size: .875rem;
+  font-size: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,3 +17,8 @@
   }
 }
 
+
+.active-tab {
+  color: var(--original-blue);
+  font-weight: bold;
+}

@@ -14,6 +14,18 @@
   color: var(--dark-gray);
 }
 
+.p-datatable .p-datatable-tbody > tr > td {
+  color: var(--dark-gray);
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.p-datatable .p-datatable-thead > tr > th {
+  color: var(--dark-gray);
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 
 .p-button {
   padding-block: 0.75rem;

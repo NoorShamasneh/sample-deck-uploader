@@ -19,7 +19,6 @@ export class DeckItemComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.data.subscribe(res => {
-      debugger;
       this.deck = res.deck;
     });
   }

@@ -27,7 +27,6 @@ export class DeckResolve implements Resolve<Deck> {
       return this.service.find(id).pipe(
         flatMap((res: HttpResponse<Deck>) => {
           if (res.body) {
-            debugger
             return of(res.body);
           } else {
             this.router.navigate(['404']);

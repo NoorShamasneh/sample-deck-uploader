@@ -3,6 +3,8 @@ import {FormBuilder, Validators} from '@angular/forms';
 import {FileUpload} from 'primeng/fileupload';
 import {DeckService} from '../deck.service';
 import {Router} from '@angular/router';
+import {NgxSpinnerService} from 'ngx-spinner';
+import {NgxUiLoaderService} from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-deck-creator',
@@ -24,7 +26,7 @@ export class DeckCreatorComponent implements OnInit {
   @ViewChild('offerUploader', {static: false}) offerUploader: FileUpload;
 
 
-  constructor(private fb: FormBuilder, private deckService: DeckService, private router: Router) {
+  constructor(private fb: FormBuilder, private deckService: DeckService, private router: Router, private ngxService: NgxUiLoaderService) {
   }
 
   ngOnInit() {
@@ -34,16 +36,20 @@ export class DeckCreatorComponent implements OnInit {
     this.isSaving = true;
     this.showError = false;
     const formData = new FormData();
+    this.ngxService.start();
     formData.append('originalFile', this.editForm.get('file').value);
     formData.append('companyName', this.editForm.get('companyName').value);
     formData.append('description', this.editForm.get('description').value);
     formData.append('originalFileName', this.editForm.get('fileName').value);
     this.deckService.create(formData).subscribe((res) => {
       this.isSaving = false;
+      this.ngxService.stop();
       if (res.body.id) {
         this.router.navigate([res.body.id]);
       }
     }, error => {
+      this.isSaving = false;
+      this.ngxService.stop();
       this.showError = true;
     });
 
